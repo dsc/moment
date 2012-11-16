@@ -915,6 +915,7 @@
 
 
     moment.fn = Moment.prototype = {
+        constructor : Moment,
 
         clone : function () {
             return moment(this);
@@ -1136,6 +1137,8 @@
 
 
     moment.duration.fn = Duration.prototype = {
+        constructor : Duration,
+
         weeks : function () {
             return absRound(this.days() / 7);
         },
@@ -1192,6 +1195,9 @@
         Exposing Moment
     ************************************/
 
+    // Expose class objects
+    moment.Duration = Duration;
+    moment.Moment   = Moment;
 
     // CommonJS module is defined
     if (hasModule) {
